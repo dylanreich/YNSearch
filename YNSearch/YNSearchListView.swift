@@ -14,20 +14,21 @@ open class YNSearchListView: UITableView, UITableViewDelegate, UITableViewDataSo
     
     open var ynSearchListViewDelegate: YNSearchListViewDelegate?
     open var ynSearch = YNSearch()
-    open var ynSearchTextFieldText: String? {
-        didSet {
-            guard let text = ynSearchTextFieldText else { return }
-
-            let objectification = Objectification(objects: database, type: .all)
-            let result = objectification.objects(contain: text)
-
-            self.searchResultDatabase = result
-            if text.isEmpty {
-                self.initData(database: database)
-            }
-            self.reloadData()
-        }
-    }
+    open var ynSearchTextFieldText: String?
+//        {
+//        didSet {
+//            guard let text = ynSearchTextFieldText else { return }
+//
+//            let objectification = Objectification(objects: database, type: .all)
+//            let result = objectification.objects(contain: text)
+//
+//            self.searchResultDatabase = result
+//            if text.isEmpty {
+//                self.initData(database: database)
+//            }
+//            self.reloadData()
+//        }
+//    }
 
     public override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
