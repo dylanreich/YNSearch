@@ -34,7 +34,7 @@ open class YNSearchViewController: UIViewController, UITextFieldDelegate {
     }
 
     open func ynSearchinit(context: YNSearchContext = .home) {
-        let yOrigin: CGFloat = context == .home ? 70.0 : 84.0
+        let yOrigin: CGFloat = context == .home ? 70.0 : 94.0
         
         self.ynSearchTextfieldView = YNSearchTextFieldView(frame: CGRect(x: 20, y: 20, width: width-40, height: 50))
         self.ynSearchTextfieldView.ynSearchTextField.delegate = self
