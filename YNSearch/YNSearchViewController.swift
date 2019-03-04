@@ -8,6 +8,11 @@
 
 import UIKit
 
+public enum YNSearchContext: Int {
+    case home
+    case queue
+}
+
 open class YNSearchViewController: UIViewController, UITextFieldDelegate {
     open var delegate: YNSearchDelegate? {
         didSet {
@@ -28,7 +33,9 @@ open class YNSearchViewController: UIViewController, UITextFieldDelegate {
         
     }
 
-    open func ynSearchinit() {
+    open func ynSearchinit(context: YNSearchContext = .home) {
+        let yOrigin: CGFloat = context == .home ? 70.0 : 124.0
+        
         self.ynSearchTextfieldView = YNSearchTextFieldView(frame: CGRect(x: 20, y: 20, width: width-40, height: 50))
         self.ynSearchTextfieldView.ynSearchTextField.delegate = self
         self.ynSearchTextfieldView.ynSearchTextField.addTarget(self, action: #selector(ynSearchTextfieldTextChanged(_:)), for: .editingChanged)
@@ -38,7 +45,7 @@ open class YNSearchViewController: UIViewController, UITextFieldDelegate {
         
         self.view.addSubview(self.ynSearchTextfieldView)
         
-        self.ynSearchView = YNSearchView(frame: CGRect(x: 0, y: 70, width: width, height: height-70))
+        self.ynSearchView = YNSearchView(frame: CGRect(x: 0, y: yOrigin, width: width, height: height-yOrigin))
         self.view.addSubview(self.ynSearchView)
     }
     
