@@ -11,6 +11,7 @@ import UIKit
 public enum YNSearchContext: Int {
     case home
     case queue
+    case profile
 }
 
 open class YNSearchViewController: UIViewController, UITextFieldDelegate {
