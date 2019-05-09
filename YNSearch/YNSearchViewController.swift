@@ -37,7 +37,7 @@ open class YNSearchViewController: UIViewController, UITextFieldDelegate {
     open func ynSearchinit(context: YNSearchContext = .home) {
         let yOrigin: CGFloat = context == .home ? 70.0 : 98.0
         
-        self.ynSearchTextfieldView = YNSearchTextFieldView(frame: CGRect(x: 20, y: 20, width: width-40, height: 50))
+        self.ynSearchTextfieldView = YNSearchTextFieldView(frame: CGRect(x: 20, y: 25, width: width-40, height: 50))
         self.ynSearchTextfieldView.ynSearchTextField.delegate = self
         self.ynSearchTextfieldView.ynSearchTextField.addTarget(self, action: #selector(ynSearchTextfieldTextChanged(_:)), for: .editingChanged)
         self.ynSearchTextfieldView.cancelButton.addTarget(self, action: #selector(ynSearchTextfieldcancelButtonClicked), for: .touchUpInside)
