@@ -43,10 +43,10 @@ class ViewController: YNSearchViewController, YNSearchDelegate {
         ynSearch.setCategories(value: demoCategories)
         ynSearch.setSearchHistories(value: demoSearchHistories)
 
-        self.ynSearchinit()
+        self.ynSearchinit(context: .modal)
         
         self.delegate = self
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+//        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         let database1 = YNDropDownMenu(key: "YNDropDownMenu")
         let database2 = YNSearchData(key: "YNSearchData")

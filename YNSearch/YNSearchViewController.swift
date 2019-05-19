@@ -12,6 +12,7 @@ public enum YNSearchContext: Int {
     case home
     case queue
     case profile
+    case modal
 }
 
 open class YNSearchViewController: UIViewController, UITextFieldDelegate {
@@ -35,9 +36,15 @@ open class YNSearchViewController: UIViewController, UITextFieldDelegate {
     }
 
     open func ynSearchinit(context: YNSearchContext = .home) {
-        let yOrigin: CGFloat = context == .home ? 70.0 : 98.0
+        var yOrigin: CGFloat = context == .home ? 70.0 : 98.0
         
-        self.ynSearchTextfieldView = YNSearchTextFieldView(frame: CGRect(x: 20, y: 25, width: width-40, height: 50))
+        if context == .modal {
+            yOrigin = 134.0
+        }
+        
+        let ynSearchTextfieldViewOrigin: CGFloat = context == .modal ? 89.0 : 25.0
+        
+        self.ynSearchTextfieldView = YNSearchTextFieldView(frame: CGRect(x: 20, y: ynSearchTextfieldViewOrigin, width: width-40, height: 50))
         self.ynSearchTextfieldView.ynSearchTextField.delegate = self
         self.ynSearchTextfieldView.ynSearchTextField.addTarget(self, action: #selector(ynSearchTextfieldTextChanged(_:)), for: .editingChanged)
         self.ynSearchTextfieldView.cancelButton.addTarget(self, action: #selector(ynSearchTextfieldcancelButtonClicked), for: .touchUpInside)
